@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div class="cookiespolicycont" style="display: none; position: absolute; z-index: 9999999; background: white; width: auto; height: auto; bottom: 15px; border-radius: 5px; box-shadow: 0px 0px 40px 0px rgb(0 0 0 / 75%); padding: 1rem; transition: all 1s;">
+	<div class="cookiecontent">
+		<p>Usamos cookies para recolectar y analizar información relacionada con el uso y desempeño	</p>
+        <p>de nuestro sitio web para poder proveer funcionalidades relacionadas con las redes sociales,	</p>
+		<p>y para mejorar y personalizar adecuadamente el contenido y publicidad en nuestro sitio web.	</p>
+		<p><a href="/es/cookiespolicy/" target="_blank">More information</a></p>
+		<button id="acceptpolicy">Aceptar cookies</button>
+	</div>
+</div>
+<script type="text/javascript">
+	window.addEventListener("load", function() {
+		const cookiepolicy=document.getElementsByClassName("cookiespolicycont");
+		var policy = localStorage.getItem('cookiepolicy');
+		setTimeout(function () {
+			var policy = localStorage.getItem('cookiepolicy');
+            if (policy !== 'accepted') {
+            	cookiepolicy[0].style.right='0';
+            	cookiepolicy[0].style.display='block';
+            }
+        }, 3000);
+			
+	});
+</script>
+</body>
+</html>

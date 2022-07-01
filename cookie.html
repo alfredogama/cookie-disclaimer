@@ -5,18 +5,20 @@
 </head>
 <body>
 
-<div class="cookiespolicycont" style="display: none; position: absolute; z-index: 9999999; background: white; width: auto; height: auto; bottom: 15px; border-radius: 5px; box-shadow: 0px 0px 40px 0px rgb(0 0 0 / 75%); padding: 1rem; transition: all 1s;">
+<div class="cookiespolicycont" style="display: none; position: absolute; z-index: 9999999; background: white; width: auto; height: auto; bottom: 15px; border-radius: 5px; margin: 10px; box-shadow: 0px 0px 40px 0px rgb(0 0 0 / 75%); padding: 1rem; transition: all 1s;max-width: 400px; font-family: 'PT Sans Caption',lucida grande;">
 	<div class="cookiecontent">
-		<p>Usamos cookies para recolectar y analizar información relacionada con el uso y desempeño	</p>
-        <p>de nuestro sitio web para poder proveer funcionalidades relacionadas con las redes sociales,	</p>
-		<p>y para mejorar y personalizar adecuadamente el contenido y publicidad en nuestro sitio web.	</p>
-		<p><a href="/es/cookiespolicy/" target="_blank">More information</a></p>
-		<button id="acceptpolicy">Aceptar cookies</button>
+		<p style="font-size: 14px; line-height: 1.4;">
+			Usamos cookies para mejorar su experiencia en la navegación de nuestra web. Las
+			cookies nos permiten ofrecerle funcionalidades importantes relacionadas con la
+			seguridad, gestión de la red y/o accesibilidad. Ver la 
+			<a href="/es/cookiespolicy/" target="_blank" style="color: black; font-weight: bold; text-decoration: none;">Política de cookies</a></p>
+		<button id="acceptpolicy" style="background-color: rgb(234,157,101); border-width: 0; color: white; font-size: 14px; padding: 7px 20px; cursor: pointer;">Aceptar cookies</button>
 	</div>
 </div>
 <script type="text/javascript">
 	window.addEventListener("load", function() {
 		const cookiepolicy=document.getElementsByClassName("cookiespolicycont");
+		const buttonaccept=document.getElementById("acceptpolicy");
 		var policy = localStorage.getItem('cookiepolicy');
 		setTimeout(function () {
 			var policy = localStorage.getItem('cookiepolicy');
@@ -25,7 +27,12 @@
             	cookiepolicy[0].style.display='block';
             }
         }, 3000);
-			
+		buttonaccept.addEventListener("click", function(event) {
+			event.preventDefault();
+			localStorage.setItem('cookiepolicy', 'accepted');
+            cookiepolicy[0].style.right="-500px";
+            cookiepolicy[0].style.display="none";
+		});
 	});
 </script>
 </body>
